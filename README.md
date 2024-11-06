@@ -47,6 +47,7 @@ class _CounterWidgetState extends State<CounterWidget> {
   }
   // Kode lainnya
 }
+<br>
 
 ## 4. Perbedaan `const` dan `final`
 - **const**: Digunakan untuk mendefinisikan nilai konstan pada waktu kompilasi (compile-time constant) yang bersifat tetap dan tidak berubah.
