@@ -23,10 +23,44 @@ Berikut adalah widget yang saya gunakan dalam proyek ini beserta fungsinya masin
 - **Icon**: Menampilkan ikon.
 - **SnackBar**: Menampilkan pesan sementara di bagian bawah layar.
 
-## 3. Fungsi `setState()`
-`setState()` digunakan pada **Stateful Widget** untuk memberi tahu Flutter bahwa ada perubahan pada state internal, sehingga UI perlu diperbarui. Variabel yang terpengaruh adalah semua variabel state yang didefinisikan dalam kelas `State`.  
-Pada proyek ini, `setState()` tidak digunakan karena hanya menggunakan **StatelessWidget** yang tidak memiliki state.
+
+## Fungsi `setState()` dan Variabel yang Terdampak
+
+Fungsi `setState()` digunakan untuk memperbarui tampilan pada widget `StatefulWidget` ketika terjadi perubahan pada data yang mempengaruhi tampilan aplikasi. Saat `setState()` dipanggil, Flutter akan melakukan *rebuild* pada widget terkait untuk menampilkan data terbaru.
+
+Contoh penggunaan:
+
+```dart
+class CounterWidget extends StatefulWidget {
+  @override
+  _CounterWidgetState createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int counter = 0; // Variabel yang terdampak oleh setState
+  final String value = 'PBP Asik'; // Variabel yang tidak terdampak oleh setState
+
+  void incrementCounter() {
+    setState(() {
+      counter++; // Variabel counter diubah dalam setState
+    });
+  }
+  // Kode lainnya
+}
 
 ## 4. Perbedaan `const` dan `final`
 - **const**: Digunakan untuk mendefinisikan nilai konstan pada waktu kompilasi (compile-time constant) yang bersifat tetap dan tidak berubah.
 - **final**: Digunakan untuk variabel yang nilainya hanya dapat ditetapkan satu kali, namun nilainya bisa ditentukan saat runtime (tidak harus pada waktu kompilasi).
+
+## 5. Langkah-langkah
+- Membuat proyek baru dengan perintah flutter create exotiq dan menghubungkan proyek ke repositori GitHub.
+- Membuat file menu.dart di dalam direktori exotiq/lib dan menambahkan import yang diperlukan.
+- Merapikan struktur proyek dengan memindahkan sebagian kode dari main.dart ke menu.dart.
+- Mengubah widget halaman menu menjadi stateless widget.
+- Membuat kartu sederhana untuk menampilkan NPM, nama, dan kelas, serta menambahkan kelas InfoCard untuk tampilannya.
+- Membuat tombol kartu dengan ikon di tengah, menambahkan kelas ItemCard, dan menyesuaikan tampilannya.
+- Mengintegrasikan InfoCard dan ItemCard agar ditampilkan di halaman utama.
+- Mengatur tampilan aplikasi secara keseluruhan, memperhatikan padding, row, column, ikon, dan lainnya.
+- Menambahkan atribut color pada kelas ItemHomePage untuk mengubah warna kartu "Lihat Daftar Produk", "Tambah Produk", dan "Logout".
+- Mengkustomisasi warna ketiga kartu agar berbeda satu sama lain.
+- Menyimpan perubahan ke GitHub dengan menjalankan perintah add, commit, dan push.
