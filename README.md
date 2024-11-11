@@ -1,3 +1,5 @@
+<details> <summary>Tugas 7</summary>
+  
 # TUGAS 7
 
 ## 1. Stateless Widget vs Stateful Widget
@@ -64,3 +66,75 @@ class _CounterWidgetState extends State<CounterWidget> {
 - Menambahkan atribut color pada kelas ItemHomePage untuk mengubah warna kartu "Lihat Daftar Produk", "Tambah Produk", dan "Logout".
 - Mengkustomisasi warna ketiga kartu agar berbeda satu sama lain.
 - Menyimpan perubahan ke GitHub dengan menjalankan perintah add, commit, dan push.
+
+</details> <details> <summary>Tugas 8</summary>
+  
+# TUGAS 8
+
+### 1. Penggunaan `const` di Flutter
+
+`const` digunakan di Flutter untuk mendefinisikan objek yang bersifat immutable (tidak dapat diubah) dan mengubahnya menjadi konstanta saat kompilasi (compile-time constant). Nilai dari objek tersebut sudah ditentukan ketika kompilasi, sehingga tidak berubah di saat runtime. Ini menghemat memori karena Flutter tidak perlu membuat ulang objek tersebut setiap kali widget di-render ulang. Keuntungan menggunakan `const` adalah peningkatan performa karena objek hanya dibuat sekali. Gunakan `const` pada widget yang sifatnya statis dan tidak berubah (misalnya teks, ikon, atau padding yang tetap), serta elemen-elemen yang sering dipakai dengan nilai tetap seperti warna atau margin. Hindari `const` jika widget tersebut harus berubah berdasarkan `state` atau kondisi tertentu.
+
+### 2. Perbandingan `Column` dan `Row` di Flutter
+
+`Column` dan `Row` adalah widget layout di Flutter untuk mengatur widget lain dalam bentuk vertikal atau horizontal.
+
+- **Column**: Menyusun widget secara vertikal (dari atas ke bawah), umumnya dipakai untuk menumpuk elemen dalam satu kolom di layar.
+- **Row**: Menyusun widget secara horizontal (dari kiri ke kanan), biasa digunakan untuk menempatkan elemen secara berdampingan.
+
+Contoh implementasi `Column`:
+```dart
+Column(
+  children: [
+    Text("Item 1"),
+    Text("Item 2"),
+  ],
+);
+```
+
+Contoh implementasi `Row`:
+```dart
+Row(
+  children: [
+    Icon(Icons.star),
+    Text("Rating"),
+  ],
+);
+```
+
+### 3. Elemen Input pada Halaman Form
+
+Elemen input yang digunakan pada halaman form:
+- **TextFormField**: Digunakan untuk mengisi data teks pada form seperti `Item`, `Amount`, dan `Description`.
+
+Elemen input Flutter lain yang tidak digunakan pada tugas ini:
+- **Checkbox**: memilih antara dua opsi (on/off).
+- **Switch**: Untuk opsi aktif/non-aktif.
+- **Slider**: memilih nilai dalam rentang tertentu.
+- **DropdownButton**: memilih satu opsi dari beberapa pilihan dalam bentuk dropdown.
+- **DatePicker/TimePicker**  memilih tanggal atau waktu.
+- **Radio**: memilih salah satu dari beberapa opsi yang ada.
+
+### 4. Pengaturan Tema dalam Aplikasi Flutter
+
+Flutter menyediakan `ThemeData` di dalam `MaterialApp` untuk mengatur tema aplikasi secara konsisten. Dengan `ThemeData`, kita bisa mendefinisikan warna, font, dan gaya yang akan diterapkan di seluruh aplikasi. Pada aplikasi Exotiq,  `ThemeData` digunakan untuk mengatur skema warna utama agar seragam di setiap halaman. Contoh implementasi dalam kode (pada `main.dart`):
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return MaterialApp(
+    title: 'Exotiq',
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.deepPurple,
+      ).copyWith(secondary: Colors.deepPurple[400]),
+      useMaterial3: true,
+    ),
+    home: MyHomePage(),
+  );
+}
+```
+
+### 5. Penanganan Navigasi dalam Aplikasi dengan Banyak Halaman
+
+Untuk menangani navigasi dalam aplikasi Flutter yang memiliki banyak halaman, terdapat beberapa pendekatan. Salah satunya menggunakan `Navigator` dan `MaterialPageRoute`. `Navigator.push()` digunakan untuk membuka halaman baru, sedangkan `Navigator.pop()` untuk kembali ke halaman sebelumnya. Jika ingin menggantikan halaman saat ini dengan halaman baru, kita bisa menggunakan `Navigator.pushReplacement()`.
