@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:exotiq/menu.dart';
+import 'package:exotiq/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
